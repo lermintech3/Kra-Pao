@@ -14,12 +14,14 @@ Household finance app (Thai UI, iOS style, vivid colors) for a couple. Single fi
 - `debts/{id}`: debt records (balance, rate, min, day, log)
 - `meta/settings`: `{a:{name,e}, b:{name,e}, budgets:{catId: amount}, saveTarget, emMonths}`
 - Tabs: home, tx, plan (budget/recurring/forecast/report), goals (savings & debts).
-- Backend order: Firebase (if `firebase-config.js` has real values; Google sign-in, Firestore compat SDK from gstatic, same collection paths) → Claude artifact `db` → localStorage. `attach(db)` subscribes for both Firestore and Claude db (same API shape).
+- Backend order: Cloudflare D1 via Worker (if `api-config.js` sets `D1_API_URL`; house-key login stored in localStorage `ourwallet.key`; polling every 8 s; `makeD1()` mimics the db API) → Firebase (if `firebase-config.js` has real values; Google sign-in, Firestore compat SDK from gstatic, same collection paths) → Claude artifact `db` → localStorage. `attach(db)` subscribes for both Firestore and Claude db (same API shape).
 - `firestore.rules` limits access to two emails. Setup guide for the user: `FIREBASE_SETUP_TH.md` (GitHub Pages hosting at https://lermintech3.github.io/Kra-Pap/).
-- When republishing the artifact, publish both `index.html` and `firebase-config.js` (placeholder values).
+- D1: `cloudflare/schema.sql` (single `docs(col,id,data,updated,deleted)` table, soft deletes) and `cloudflare/worker.js` (Bearer HOUSE_KEY, `GET /api/all?since=`, `PUT|DELETE /api/doc/:col/:id`). Guide: `D1_SETUP_TH.md`.
+- When republishing the artifact, publish `index.html`, `api-config.js` and `firebase-config.js` (empty/placeholder values).
+- Test D1 locally: wrap `worker.js` in a Node http server with `node:sqlite` as `env.DB`, point `api-config.js` at http://localhost.
 
 ## Design
-- Home is e-wallet style: gradient header, white balance card with hide-amount eye, 8 quick actions, insight carousel. Entry sheet uses a custom iOS keypad with +/− math, category chip row, date chips, note suggestions.
+- Home is e-wallet style: gradient header, white balance card with hide-amount eye, 4 quick actions, insight carousel. Entry sheet uses a custom iOS keypad with + − × math, category chip row, date chips, note suggestions.
 - bg `#F2F2F7`, white cards radius 22, frosted floating tab bar, bottom sheets, segmented controls; system font + Noto Sans Thai.
 - Expense category colors are fixed and color-blind validated in this order: food #FF8A00, transport #007AFF, shopping #FF2D55, home #20A8C0, fun #AF52DE, health #30C26A, bills #5856D6, edu #D9A400, other #8E8E93. Adding a category needs re-validation.
 - Income/expense chart: #007AFF / #FF8A00. People: a #AF52DE, b #20A8C0, both #FF8A00.

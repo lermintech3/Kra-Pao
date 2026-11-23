@@ -12,17 +12,21 @@
 - **เป้าหมายออมเงิน** – ติดตามความคืบหน้า เติม/ถอน คำนวณยอดที่ต้องออมต่อเดือน
 - **ตั้งค่า** – ชื่อและอีโมจิของแต่ละคน สำรอง/นำเข้าข้อมูล (JSON)
 
-## การเก็บข้อมูล (เลือกได้ 3 แบบ อัตโนมัติ)
-1. **Firebase (แนะนำสำหรับรันเอง)** – ใส่ค่าใน `firebase-config.js` → ล็อกอินด้วย Google, ซิงค์เรียลไทม์, จำกัดสิทธิ์ด้วยอีเมล
-   👉 **วิธีตั้งค่าทีละขั้น: [FIREBASE_SETUP_TH.md](FIREBASE_SETUP_TH.md)**
-2. **ลิงก์ Claude** – ข้อมูลเก็บในฐานข้อมูลของ artifact (แชร์ให้แฟนด้วยสิทธิ์ Contributor/Editor)
-3. **ไม่ได้ตั้งค่าอะไร** – เก็บใน `localStorage` ของเบราว์เซอร์นั้นเท่านั้น
+## การเก็บข้อมูล (เลือกได้ แอปเลือกให้อัตโนมัติ)
+1. **Cloudflare D1 (ที่ใช้อยู่)** – ใส่ URL ของ Worker ใน `api-config.js` → เข้าด้วยรหัสบ้าน, ซิงค์ทุก ~8 วินาที
+   👉 **วิธีตั้งค่าทีละขั้น: [D1_SETUP_TH.md](D1_SETUP_TH.md)**
+2. **Firebase** – ใส่ค่าใน `firebase-config.js` → ล็อกอินด้วย Google ([FIREBASE_SETUP_TH.md](FIREBASE_SETUP_TH.md))
+3. **ลิงก์ Claude** – ข้อมูลเก็บในฐานข้อมูลของ artifact (แชร์ให้แฟนด้วยสิทธิ์ Contributor/Editor)
+4. **ไม่ได้ตั้งค่าอะไร** – เก็บใน `localStorage` ของเบราว์เซอร์นั้นเท่านั้น
 
 ## ไฟล์
 | ไฟล์ | หน้าที่ |
 |---|---|
 | `index.html` | ตัวแอปทั้งหมด |
-| `firebase-config.js` | ค่าเชื่อมต่อ Firebase (แก้ไฟล์นี้) |
+| `api-config.js` | URL ของ Cloudflare Worker (แก้ไฟล์นี้) |
+| `cloudflare/worker.js` | โค้ด Worker — วางใน Cloudflare |
+| `cloudflare/schema.sql` | คำสั่งสร้างตารางใน D1 |
+| `firebase-config.js` | ค่าเชื่อมต่อ Firebase (ถ้าใช้ Firebase) |
 | `firestore.rules` | สิทธิ์ฐานข้อมูล — ใส่อีเมลของคุณกับแฟน |
 | `firebase.json` | สำหรับคนที่อยากใช้ Firebase CLI / Hosting (ไม่บังคับ) |
 
