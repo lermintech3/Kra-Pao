@@ -527,7 +527,7 @@ function setSync(state,text){const el=document.getElementById('sync');el.querySe
 const COLS=['tx','goals','bills','debts'];
 let MODE='local', FB=null;
 /* ---------- Cloudflare D1 (via Worker API) ---------- */
-function d1Url(){const u=String(window.D1_API_URL||'').trim().replace(/\/+$/,'');return /^(https:\/\/.+|http:\/\/(localhost|127\.0\.0\.1)(:\d+)?)/.test(u)&&!/YOUR_|ใส่/.test(u)?u:''}
+function d1Url(){if(window.D1_SAME_ORIGIN)return location.origin;const u=String(window.D1_API_URL||'').trim().replace(/\/+$/,'');return /^(https:\/\/.+|http:\/\/(localhost|127\.0\.0\.1)(:\d+)?)/.test(u)&&!/YOUR_|ใส่/.test(u)?u:''}
 const KEY_LS='ourwallet.key';
 function makeD1(url,key){
   const cache={}, subs=[]; let since=0, failing=false, timer=null;

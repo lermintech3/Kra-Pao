@@ -12,6 +12,15 @@
 
 > เมนูของ Cloudflare อาจเปลี่ยนชื่อเล็กน้อยตามเวลา ถ้าหาไม่เจอให้มองหาคำที่ใกล้เคียง
 
+## ⚡ ทางลัด (แนะนำ) — ไม่ต้องใช้ GitHub Pages
+ใช้ไฟล์ **`cloudflare/worker-full.js`** แทน `worker.js` → Worker จะเปิดทั้ง **หน้าแอป** และ **ฐานข้อมูล** ในลิงก์เดียว
+1. ทำขั้นที่ 1 (ตาราง), ขั้นที่ 3 (Binding `DB`), ขั้นที่ 4 (Secret `HOUSE_KEY`) ตามด้านล่าง
+2. ใน Worker → **Edit code** → ลบโค้ดเดิมทั้งหมด → เปิด https://raw.githubusercontent.com/lermintech3/Kra-Pap/main/cloudflare/worker-full.js → เลือกทั้งหมด คัดลอก → วาง → **Deploy**
+3. เปิด URL ของ Worker (`https://kra-pap-api.xxxx.workers.dev`) → จะเห็นหน้าใส่ **รหัสบ้าน** → เข้าใช้งานได้เลย 🎉
+4. ข้ามขั้นที่ 5–7 ได้ทั้งหมด (ไม่ต้องแก้ `api-config.js` ไม่ต้องเปิด GitHub Pages)
+
+> แนะนำทำบนคอมพิวเตอร์ เพราะไฟล์ยาว คัดลอกบนมือถือลำบาก
+
 ---
 
 ## ขั้นที่ 1 — สร้างตารางใน D1
