@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ✏️ เปลี่ยนเป็นอีเมล Google ของคุณกับแฟน (ตัวพิมพ์เล็กทั้งหมด)
+    function isFamily() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in [
+          'you@gmail.com',
+          'partner@gmail.com'
+        ];
+    }
+
+    match /tx/{id}       { allow read, write: if isFamily(); }
+    match /goals/{id}    { allow read, write: if isFamily(); }
+    match /bills/{id}    { allow read, write: if isFamily(); }
+    match /debts/{id}    { allow read, write: if isFamily(); }
+    match /meta/{id}     { allow read, write: if isFamily(); }
+
+    // ทุกอย่างนอกเหนือจากนี้ปิดหมด
+    match /{document=**} { allow read, write: if false; }
+  }
+}
