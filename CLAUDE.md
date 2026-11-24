@@ -23,8 +23,8 @@ Household finance app (Thai UI, iOS style, vivid colors) for a couple. Single fi
 
 ## Design
 - No emoji in the UI: `ICONS` (line SVGs) + `I(name)`; category icons via `ci(c)`; any emoji (incl. saved data like goal/debt `e`) is converted to an icon at render time by `iconize()` (MutationObserver) using the `EMO` map — add new emoji there.
-- Vivid theme: gradient header with white silk art, vivid balance card with guilloche + chip (SVG data URIs in CSS vars `--art-*`).
+- Theme = "Aqua Glass" (user's choice: premium, dimensional, glassy, blue–green–white): fixed aqua mesh background, frosted glass cards/tab bar/sheets (backdrop-filter), glossy 3D icon bubbles, ocean-gradient balance card with white guilloche + silver chip (SVG data URIs in CSS vars `--art-*`). UI accents are blue/teal/green; category data colors stay as validated.
 - Home is e-wallet style: gradient header, white balance card with hide-amount eye, 4 quick actions, insight carousel. Entry sheet uses a custom iOS keypad with + − × math, category chip row, date chips, note suggestions.
-- bg `#F2F2F7`, white cards radius 22, frosted floating tab bar, bottom sheets, segmented controls; system font + Noto Sans Thai.
+- Cards radius 26 glass, frosted floating tab bar, bottom sheets, segmented controls; system font + Noto Sans Thai.
 - Expense category colors are fixed and color-blind validated in this order: food #FF8A00, transport #007AFF, shopping #FF2D55, home #20A8C0, fun #AF52DE, health #30C26A, bills #5856D6, edu #D9A400, other #8E8E93. Adding a category needs re-validation.
 - Income/expense chart: #007AFF / #FF8A00. People: a #AF52DE, b #20A8C0, both #FF8A00.
