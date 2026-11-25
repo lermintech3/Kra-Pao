@@ -71,7 +71,7 @@ window.D1_API_URL = "https://kra-pap-api.ชื่อคุณ.workers.dev";
 ## ขั้นที่ 7 — เปิดเว็บด้วย GitHub Pages
 1. ให้แน่ใจว่า **merge Pull Request แล้ว**
 2. เรโป → **Settings → Pages** → Source: **Deploy from a branch** → **main** / **(root)** → **Save**
-3. รอ 1–2 นาที เปิด 👉 **https://lermintech3.github.io/Kra-Pap/**
+3. รอ 1–2 นาที เปิด 👉 **https://lermintech3.github.io/Kra-Pao/**
 4. ใส่ **รหัสบ้าน** → เข้าใช้งาน 🎉 (แฟนใช้รหัสเดียวกัน)
 
 ## ขั้นที่ 8 — ติดตั้งเป็นแอปบนมือถือ

@@ -60,7 +60,7 @@ request.auth.token.email in [
 1. ใน GitHub เรโป Kra-Pap ให้แน่ใจว่า **merge Pull Request แล้ว** (ไฟล์อยู่ใน main)
 2. ไปที่ **Settings → Pages**
 3. Source: **Deploy from a branch** → Branch: **main** / **(root)** → **Save**
-4. รอ 1–2 นาที แล้วเปิด 👉 **https://lermintech3.github.io/Kra-Pap/**
+4. รอ 1–2 นาที แล้วเปิด 👉 **https://lermintech3.github.io/Kra-Pao/**
 5. กด **เข้าสู่ระบบด้วย Google** → เลือกบัญชีที่อยู่ใน Rules → ใช้งานได้เลย 🎉
 
 ## ขั้นที่ 6 — ติดตั้งเป็นแอปบนมือถือ

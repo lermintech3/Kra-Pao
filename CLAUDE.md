@@ -15,7 +15,7 @@ Household finance app (Thai UI, iOS style, vivid colors) for a couple. Single fi
 - `meta/settings`: `{a:{name,e}, b:{name,e}, budgets:{catId: amount}, saveTarget, emMonths}`
 - Tabs: home, tx, plan (budget/recurring/forecast/report), goals (savings & debts).
 - Backend order: Cloudflare D1 via Worker (if `api-config.js` sets `D1_API_URL`; house-key login stored in localStorage `ourwallet.key`; polling every 8 s; `makeD1()` mimics the db API) → Firebase (if `firebase-config.js` has real values; Google sign-in, Firestore compat SDK from gstatic, same collection paths) → Claude artifact `db` → localStorage. `attach(db)` subscribes for both Firestore and Claude db (same API shape).
-- `firestore.rules` limits access to two emails. Setup guide for the user: `FIREBASE_SETUP_TH.md` (GitHub Pages hosting at https://lermintech3.github.io/Kra-Pap/).
+- `firestore.rules` limits access to two emails. Setup guide for the user: `FIREBASE_SETUP_TH.md` (GitHub Pages hosting at https://lermintech3.github.io/Kra-Pao/).
 - D1: `cloudflare/schema.sql` (single `docs(col,id,data,updated,deleted)` table, soft deletes) and `cloudflare/worker.js` (Bearer HOUSE_KEY, `GET /api/all?since=`, `PUT|DELETE /api/doc/:col/:id`). Guide: `D1_SETUP_TH.md`.
 - When republishing the artifact, publish `index.html`, `api-config.js` and `firebase-config.js` (empty/placeholder values).
 - `cloudflare/worker-full.js` = worker + embedded index.html (serves app at `/`, `api-config.js` sets `D1_SAME_ORIGIN`). **Rebuild with `python3 cloudflare/build.py` after every index.html change.**
