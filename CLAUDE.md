@@ -30,6 +30,7 @@ Household finance app (Thai UI, iOS style, vivid colors) for a couple. Single fi
 
 ## Themes
 - Default theme = "Sky Bank" (`html.sky`, user asked for a clean mobile-banking look like Thai bank apps — generic style only, no bank's name/logo/brand marks): flat white cards on #F2F6FA, sky-blue header (#0A8FD8→#14B4F0), white account card ("บัญชีครัวเรือน" + pseudo number from names + Statement button), "บริการ" 8-icon grid replaces `.qa`, white tiles with coloured icon chips, docked white bottom bar. CSS block `SKY BANK THEME`; JS block after the premium pack wraps `renderHome`/`openSettings` (theme picker).
+- "Sky Premium" colour layer (CSS block `SKY PREMIUM`, user asked for more colour/sharper look): navy→royal→sky header, navy account card with gold accents (#D9AE5B/#F3D898), multi-tone gradient service icons, coloured gradient tiles (teal/royal/amber/violet), accent bar before card titles, gradient segmented/chips/buttons, docked navy tab bar with gold FAB ring, tinted background and sheets. Category data colours unchanged.
 - Theme stored per device in localStorage `ourwallet.theme` ('aqua' = Aqua Glass, else Sky); class set by the early inline script before render.
 
 ## Design
