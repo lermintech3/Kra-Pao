@@ -21,6 +21,13 @@ Household finance app (Thai UI, iOS style, vivid colors) for a couple. Single fi
 - `cloudflare/worker-full.js` = worker + embedded index.html (serves app at `/`, `api-config.js` sets `D1_SAME_ORIGIN`). **Rebuild with `python3 cloudflare/build.py` after every index.html change.**
 - Test D1 locally: wrap `worker.js` in a Node http server with `node:sqlite` as `env.DB`, point `api-config.js` at http://localhost.
 
+## Premium banking pack (last <script> block)
+- App lock: 6-digit PIN per device, SHA-256 + salt in localStorage `ourwallet.pin`; options in `ourwallet.pincfg` {auto: seconds before re-lock, hide: hide balance on open}. Early inline script adds `html.locked` before render; `#lock` overlay; 5 wrong tries → 30 s wait; "ลืมรหัส" only removes the device lock (data untouched).
+- Bell (`#btnBell`) = `notifs()`: due/overdue bills & debts (3 days), budget ≥80%/over, month-end negative, goals reached/near deadline. Seen keys in `ourwallet.seen`.
+- Transaction rows open `openSlip(id)` (e-slip with ref `KP+yymmdd+id`, footer says it is an in-app record, not a transfer proof) → edit/duplicate/copy/delete.
+- `openStatement(mk)` = monthly e-Statement with opening balance (net of all earlier tx), running balance, copy as CSV. Linked from home "รายการล่าสุด" and Report tab.
+- Hooks wrap `renderHome`, `renderReport`, `openSettings` (adds ความปลอดภัย group); balance count-up animation.
+
 ## Design
 - No emoji in the UI: `ICONS` (line SVGs) + `I(name)`; category icons via `ci(c)`; any emoji (incl. saved data like goal/debt `e`) is converted to an icon at render time by `iconize()` (MutationObserver) using the `EMO` map — add new emoji there.
 - Theme = "Aqua Glass" (user's choice: premium, dimensional, glassy, blue–green–white): fixed aqua mesh background, frosted glass cards/tab bar/sheets (backdrop-filter), glossy 3D icon bubbles, ocean-gradient balance card with white guilloche + silver chip (SVG data URIs in CSS vars `--art-*`). UI accents are blue/teal/green; category data colors stay as validated.
