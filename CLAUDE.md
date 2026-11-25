@@ -28,9 +28,13 @@ Household finance app (Thai UI, iOS style, vivid colors) for a couple. Single fi
 - `openStatement(mk)` = monthly e-Statement with opening balance (net of all earlier tx), running balance, copy as CSV. Linked from home "รายการล่าสุด" and Report tab.
 - Hooks wrap `renderHome`, `renderReport`, `openSettings` (adds ความปลอดภัย group); balance count-up animation.
 
+## Themes
+- Default theme = "Sky Bank" (`html.sky`, user asked for a clean mobile-banking look like Thai bank apps — generic style only, no bank's name/logo/brand marks): flat white cards on #F2F6FA, sky-blue header (#0A8FD8→#14B4F0), white account card ("บัญชีครัวเรือน" + pseudo number from names + Statement button), "บริการ" 8-icon grid replaces `.qa`, white tiles with coloured icon chips, docked white bottom bar. CSS block `SKY BANK THEME`; JS block after the premium pack wraps `renderHome`/`openSettings` (theme picker).
+- Theme stored per device in localStorage `ourwallet.theme` ('aqua' = Aqua Glass, else Sky); class set by the early inline script before render.
+
 ## Design
 - No emoji in the UI: `ICONS` (line SVGs) + `I(name)`; category icons via `ci(c)`; any emoji (incl. saved data like goal/debt `e`) is converted to an icon at render time by `iconize()` (MutationObserver) using the `EMO` map — add new emoji there.
-- Theme = "Aqua Glass" (user's choice: premium, dimensional, glassy, blue–green–white): fixed aqua mesh background, frosted glass cards/tab bar/sheets (backdrop-filter), glossy 3D icon bubbles, ocean-gradient balance card with white guilloche + silver chip (SVG data URIs in CSS vars `--art-*`). UI accents are blue/teal/green; category data colors stay as validated.
+- Alternative theme "Aqua Glass" (earlier choice: premium, dimensional, glassy, blue–green–white): fixed aqua mesh background, frosted glass cards/tab bar/sheets (backdrop-filter), glossy 3D icon bubbles, ocean-gradient balance card with white guilloche + silver chip (SVG data URIs in CSS vars `--art-*`). UI accents are blue/teal/green; category data colors stay as validated.
 - Home is e-wallet style: gradient header, white balance card with hide-amount eye, 4 quick actions, insight carousel. Entry sheet uses a custom iOS keypad with + − × math, category chip row, date chips, note suggestions.
 - Cards radius 26 glass, frosted floating tab bar, bottom sheets, segmented controls; system font + Noto Sans Thai.
 - Expense category colors are fixed and color-blind validated in this order: food #FF8A00, transport #007AFF, shopping #FF2D55, home #20A8C0, fun #AF52DE, health #30C26A, bills #5856D6, edu #D9A400, other #8E8E93. Adding a category needs re-validation.

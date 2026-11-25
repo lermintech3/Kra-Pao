@@ -598,10 +598,128 @@ table.stm tr.ob td,table.stm tr.cb td{font-weight:700;background:var(--fill)}
 .wh .sync{padding:0;width:40px;height:40px;justify-content:center;border-radius:50%}
 .wh .sync span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .wh .sync .dot{width:10px;height:10px;box-shadow:0 0 0 2px rgba(255,255,255,.7)}
+/* ================= SKY BANK THEME (html.sky) — clean mobile-banking look ================= */
+html.sky{--bg:#F2F6FA;--card:#FFFFFF;--ink:#0B2545;--ink2:#3A5470;--muted:#7A8CA3;--sep:rgba(11,37,69,.08);--fill:rgba(11,60,110,.06);
+  --pink:#0A8FD8;--blue:#0A8FD8;--sky:#0A8FD8;--sky2:#14B4F0;--skyL:#E7F5FD;
+  --shadow:0 1px 2px rgba(11,37,69,.04),0 6px 18px rgba(11,60,110,.07);--aqG:linear-gradient(135deg,#0A8FD8,#14B4F0)}
+html.sky,html.sky body{background:#F2F6FA}
+html.sky body:before{display:none}
+/* flat solid surfaces */
+html.sky .card,html.sky .month,html.sky .qa button,html.sky .search,html.sky .group,html.sky .cta,html.sky .chips button,html.sky .date-row>*,html.sky .note-in,html.sky .cchip,html.sky .who button,html.sky .cat,html.sky .icon-btn,html.sky .add-tile{
+  background:#fff!important;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:var(--shadow)}
+html.sky .seg-c{background:#E6EDF4!important;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+html.sky .seg-c button.on{background:#fff;box-shadow:0 2px 8px rgba(11,60,110,.12);color:var(--sky)}
+html.sky .card{border-radius:20px}
+html.sky .card:before{display:none}
+html.sky .card h3{font-size:16.5px}
+html.sky .chips button.on{background:var(--sky)!important;color:#fff}
+html.sky .cchip.on,html.sky .who button.on,html.sky .cat.on,html.sky .date-row .on{border-color:var(--sky)!important;box-shadow:0 0 0 3px rgba(10,143,216,.15)}
+html.sky .link,html.sky .sh-head button{color:var(--sky)}
+/* flat icons */
+html.sky .ic{box-shadow:none;border-radius:14px}
+html.sky .ic:before{display:none}
+html.sky .ic svg{filter:none}
+/* header */
+html.sky .wh{background:radial-gradient(120% 90% at 100% 0%,rgba(255,255,255,.18),transparent 55%),linear-gradient(160deg,#0A8FD8 0%,#14B4F0 100%);box-shadow:none;border-radius:0 0 28px 28px;padding-bottom:92px}
+html.sky .wh:before{background:rgba(255,255,255,.10);width:240px;height:240px;right:-70px;bottom:-140px}
+html.sky .wh:after{background:rgba(255,255,255,.07);display:block}
+html.sky .avs span{background:#fff;color:var(--sky);box-shadow:0 4px 12px rgba(0,60,110,.18);border:2px solid rgba(255,255,255,.9)}
+html.sky .avs span+span{color:#0B7A5A}
+html.sky .glass,html.sky .wh .sync{background:rgba(255,255,255,.18)!important;border:1px solid rgba(255,255,255,.35);box-shadow:none}
+html.sky .wh-hi b{text-shadow:none}
+/* account card */
+html.sky .bal{margin-top:-78px;background:#fff;color:var(--ink);border-radius:22px;padding:16px 18px 16px;box-shadow:0 10px 30px rgba(11,60,110,.12)}
+html.sky .bal:before{display:none}
+html.sky .bal:after{display:none}
+html.sky .bal-h span{color:var(--ink2);font-weight:700}
+html.sky .eye,html.sky .mini-m{background:var(--skyL)!important;border:0;box-shadow:none}
+html.sky .eye,html.sky .mini-m b,html.sky .mini-m button{color:var(--sky)}
+html.sky .acct{display:flex;align-items:center;gap:10px;padding-bottom:12px;margin-bottom:10px;border-bottom:1px solid var(--sep)}
+html.sky .acct .ai{width:38px;height:38px;border-radius:12px;background:var(--aqG);color:#fff;display:grid;place-items:center;flex:none}
+html.sky .acct .ai svg{width:20px;height:20px}
+html.sky .acct b{display:block;font-size:15px}
+html.sky .acct small{display:block;font-size:12px;color:var(--muted);letter-spacing:.04em}
+html.sky .acct .stmB{margin-left:auto;font-size:13px;font-weight:700;color:var(--sky);background:var(--skyL);padding:6px 11px;border-radius:99px;white-space:nowrap}
+html.sky .bal-sub{font-size:12.5px;color:var(--muted);margin-top:2px}
+html.sky .bal-amt{color:var(--ink);text-shadow:none;font-size:36px;margin:2px 0 12px}
+html.sky .bal-amt.neg{color:#D92D20}
+html.sky .io div{background:#F5F8FB;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+html.sky .io span{color:var(--ink2)}
+html.sky .io b{color:var(--ink)}
+html.sky .io span i{box-shadow:none}
+html.sky .bal .rate{color:var(--ink2)}
+html.sky .bal .rate b{color:var(--ink)}
+html.sky .bal .rate .bar{background:#E6EDF4;box-shadow:none}
+html.sky .bal .rate .bar i{background:linear-gradient(90deg,#0A8FD8,#14B4F0);box-shadow:none}
+/* service grid */
+html.sky .qa{display:none}
+.svc{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:14px 8px 6px;margin-bottom:14px}
+.svc h3{margin:0 8px 10px;font-size:16.5px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.svc-g{display:grid;grid-template-columns:repeat(4,1fr);gap:4px 2px}
+.svc-g button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 2px 10px;border-radius:14px;font-size:11.5px;font-weight:600;color:var(--ink2);line-height:1.25;text-align:center}
+.svc-g button:active{background:var(--fill)}
+.svc-g .si{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:var(--skyL);color:var(--sky);position:relative}
+.svc-g .si svg{width:24px;height:24px}
+.svc-g .si .bd{position:absolute;top:-4px;right:-6px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:#F04438;color:#fff;font-size:10px;font-weight:800;display:grid;place-items:center}
+/* tiles: white with icon chip */
+html.sky .tile{background:#fff!important;color:var(--ink);box-shadow:var(--shadow);border-radius:20px;min-height:92px}
+html.sky .tile:before,html.sky .tile:after{display:none}
+html.sky .tile span{color:var(--ink2);opacity:1}
+html.sky .tile>span>svg{width:26px;height:26px;padding:5px;border-radius:9px;color:#fff;background:var(--tc,#0A8FD8);box-sizing:border-box}
+html.sky .tile b{color:var(--ink);text-shadow:none}
+html.sky .tile em{color:var(--muted);opacity:1}
+html.sky .tile.g1{--tc:#0A8FD8} html.sky .tile.g2{--tc:#0891B2} html.sky .tile.g3{--tc:#12A150} html.sky .tile.g4{--tc:#7A5AF8}
+/* banners */
+html.sky .promo{box-shadow:0 6px 18px rgba(11,60,110,.12);background:linear-gradient(135deg,#0A8FD8,#14B4F0)!important}
+html.sky .promo:nth-child(2n){background:linear-gradient(135deg,#0B6FB0,#0A8FD8)!important}
+html.sky .promo:nth-child(3n){background:linear-gradient(135deg,#0B7A8F,#14B4C8)!important}
+html.sky .promo:before{background:radial-gradient(60% 90% at 100% 0%,rgba(255,255,255,.22),transparent 60%)}
+html.sky .dots i.on{background:var(--sky)}
+html.sky .sec-t{font-size:17px}
+/* bottom navigation: docked bar */
+html.sky .tabbar{padding:0}
+html.sky .tabin{max-width:none;border-radius:22px 22px 0 0;background:#fff!important;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;
+  box-shadow:0 -4px 20px rgba(11,60,110,.08);padding:6px 4px calc(var(--sb) + 8px)}
+html.sky .tab{color:#8A9BB0}
+html.sky .tab.on{color:var(--sky);background:none;box-shadow:none}
+html.sky .tab.on:after{content:"";width:5px;height:5px;border-radius:50%;background:var(--sky);margin-top:1px}
+html.sky .fab{width:60px;height:60px;margin-top:-30px;background:#fff;box-shadow:0 8px 20px rgba(10,143,216,.35)}
+html.sky .fab span{width:50px;height:50px;background:var(--aqG);box-shadow:none}
+html.sky .fab span:before{display:none}
+/* sheets, buttons */
+html.sky .sheet{background:#F2F6FA!important;backdrop-filter:none;-webkit-backdrop-filter:none;border-top:0}
+html.sky .btn.grad,html.sky .btn:not(.ghost):not(.danger){background:var(--sky);box-shadow:0 6px 14px rgba(10,143,216,.3)}
+html.sky .btn.ghost{background:var(--skyL);color:var(--sky);box-shadow:none}
+html.sky .keypad{background:#E6EDF4!important;backdrop-filter:none;-webkit-backdrop-filter:none}
+html.sky .keypad button{background:#fff;box-shadow:0 1px 0 rgba(11,37,69,.18)}
+html.sky .keypad .op{background:#D5E2EE;color:var(--ink)}
+html.sky .keypad .ok{background:var(--sky);color:#fff}
+html.sky .sugg button{background:var(--skyL);color:var(--sky)}
+/* heroes, goals */
+html.sky .hero,html.sky .dhero,html.sky .ghero,html.sky .stm-h{background:radial-gradient(90% 80% at 100% 0%,rgba(255,255,255,.18),transparent 60%),linear-gradient(150deg,#0A8FD8,#14B4F0)!important;box-shadow:0 12px 28px rgba(10,143,216,.25)!important}
+html.sky .dhero{background:radial-gradient(90% 80% at 100% 0%,rgba(255,255,255,.18),transparent 60%),linear-gradient(150deg,#0B4F8A,#0A8FD8)!important}
+html.sky .goal{box-shadow:0 8px 20px rgba(11,60,110,.14)}
+html.sky .goal:before{background:radial-gradient(60% 60% at 100% 0%,rgba(255,255,255,.2),transparent 60%)}
+html.sky .slip-h{background:radial-gradient(90% 80% at 100% 0%,rgba(255,255,255,.2),transparent 60%),linear-gradient(150deg,#0A8FD8,#14B4F0)}
+html.sky .slip-h.exp{background:radial-gradient(90% 80% at 100% 0%,rgba(255,255,255,.15),transparent 60%),linear-gradient(150deg,#0B4F8A,#0A8FD8)}
+html.sky .slip{box-shadow:0 10px 28px rgba(11,60,110,.12)}
+html.sky .acts4 button span{color:var(--sky)}
+html.sky .empty .e{color:var(--sky)}
+/* lock + login */
+html.sky #lock,html.sky .login{background:radial-gradient(90% 60% at 100% 0%,rgba(255,255,255,.2),transparent 60%),linear-gradient(170deg,#0A8FD8 0%,#14B4F0 60%,#53CBF5 100%)}
+html.sky #lock .lk-pad button{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);backdrop-filter:none;-webkit-backdrop-filter:none}
+html.sky #lock .lk-pad button.ghost{background:none;border:0}
+html.sky #lock .lk-logo{background:#fff;color:var(--sky);border:0;box-shadow:0 12px 28px rgba(0,60,110,.25)}
+/* theme picker */
+.thm{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.thm button{border-radius:16px;padding:10px;background:#fff;box-shadow:var(--shadow);border:2px solid transparent;text-align:left;font-weight:700;font-size:14px;color:var(--ink)}
+.thm button.on{border-color:var(--sky,#0891B2)}
+.thm i{display:block;height:54px;border-radius:11px;margin-bottom:8px}
+.thm small{display:block;font-weight:500;font-size:11.5px;color:var(--muted)}
 </style>
 </head>
 <body>
-<script>try{if(localStorage.getItem('ourwallet.pin'))document.documentElement.classList.add('locked')}catch(e){}</script>
+<script>try{if(localStorage.getItem('ourwallet.pin'))document.documentElement.classList.add('locked');if(localStorage.getItem('ourwallet.theme')!=='aqua')document.documentElement.classList.add('sky')}catch(e){document.documentElement.classList.add('sky')}</script>
 <div id="lock" role="dialog" aria-modal="true" aria-label="ล็อกแอป"></div>
 <div class="app">
 
@@ -2039,6 +2157,45 @@ renderReport=function(){_renderReport();const pb=document.getElementById('planBo
 (function(){const c=pinCfg();if(c.hide){UI.hide=true}
   if(pinRec())showLock('unlock');else document.documentElement.classList.remove('locked');
   render()})();
+</script>
+<script>
+/* ================= Sky Bank theme: home layout + theme picker ================= */
+Object.assign(ICONS,{
+ bank:'<path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l9 5H3z"/>',
+ grid:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+ palette:'<circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2a10 10 0 0 0 0 20c.9 0 1.7-.8 1.7-1.7 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.9.8-1.7 1.7-1.7H16a6 6 0 0 0 6-6c0-4.9-4.5-8.4-10-8.4z"/>'
+});
+const THEME_LS='ourwallet.theme';
+function theme(){return lsGet(THEME_LS)==='aqua'?'aqua':'sky'}
+function setTheme(t){lsSet(THEME_LS,t);document.documentElement.classList.toggle('sky',t==='sky');render()}
+function acctNo(){const s=String(whoName('a')+whoName('b'));let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;const d=String(h%10000).padStart(4,'0');return 'xxx-x-x'+d.slice(0,3)+'-'+d.slice(3)}
+function svcGrid(){const nb=notifs().filter(n=>/^u/.test(n.k)).length;
+  const items=[['up','รายจ่าย',"openTx(null,'expense')"],['down','รายรับ',"openTx(null,'income')"],['receipt','จ่ายบิล',"goPlan('recur')",nb],['wallet','งบประมาณ',"goPlan('budget')"],
+    ['gem','เป้าหมายออม',"goSave('goals')"],['card','หนี้สิน',"goSave('debts')"],['chart','รายงาน',"goPlan('report')"],['doc','Statement','openStatement()']];
+  return `<div class="svc"><h3>บริการ</h3><div class="svc-g">${items.map(([ic,l,fn,b])=>`<button onclick="${fn}"><span class="si">${I(ic,24)}${b?`<span class="bd">${b}</span>`:''}</span>${l}</button>`).join('')}</div></div>`}
+const _renderHomeSky=renderHome;
+renderHome=function(){_renderHomeSky();if(theme()!=='sky')return;
+  const bal=document.querySelector('#homeBody .bal');
+  if(bal&&!bal.querySelector('.acct')){const a=document.createElement('div');a.className='acct';
+    a.innerHTML=`<span class="ai">${I('bank',20)}</span><span><b>บัญชีครัวเรือน</b><small>${acctNo()}</small></span><button class="stmB" onclick="openStatement()">Statement</button>`;
+    bal.prepend(a);
+    const h=bal.querySelector('.bal-h span');if(h&&h.firstChild&&h.firstChild.nodeType===3)h.firstChild.data='ยอดคงเหลือเดือนนี้ ';}
+  const qa=document.querySelector('#homeBody .qa');
+  if(qa&&!document.querySelector('#homeBody .svc')){const w=document.createElement('div');w.innerHTML=svcGrid();const tiles=document.querySelector('#homeBody .tiles');
+    (tiles||qa).parentNode.insertBefore(w.firstChild,tiles||qa)}
+  const st=document.querySelector('#homeBody .stmL');if(st)st.remove();
+};
+const _openSettingsSky=openSettings;
+openSettings=function(){_openSettingsSky();const body=document.getElementById('shBody');const first=body.querySelector('.glabel');
+  const w=document.createElement('div');const t=theme();
+  w.innerHTML=`<div class="glabel">ธีม</div><div class="thm" id="thm">
+    <button data-t="sky" class="${t==='sky'?'on':''}"><i style="background:linear-gradient(160deg,#0A8FD8,#14B4F0 60%,#F2F6FA 61%)"></i>Sky Bank<small>สไตล์แอปธนาคาร สะอาดตา</small></button>
+    <button data-t="aqua" class="${t==='aqua'?'on':''}"><i style="background:linear-gradient(140deg,#0369A1,#0EA5E9 40%,#06B6D4 70%,#10B981)"></i>Aqua Glass<small>กระจกฝ้า มีมิติ</small></button></div>`;
+  body.insertBefore(w,first);
+  document.getElementById('thm').onclick=e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('#thm button').forEach(x=>x.classList.toggle('on',x===b));setTheme(b.dataset.t);toast('เปลี่ยนธีมแล้ว')};
+};
+document.getElementById('btnSettings').onclick=()=>openSettings();
+render();
 </script>
 </body>
 </html>
